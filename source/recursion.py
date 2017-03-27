@@ -2,6 +2,7 @@
 
 import unittest
 
+#factorial(n) == n!,
 
 def factorial(n):
     """factorial(n) returns the product of the integers 1 through n for n >= 0,
@@ -9,12 +10,20 @@ def factorial(n):
     # implement factorial_iterative and factorial_recursive below, then
     # change this to call your implementation to verify it passes all tests
     # return factorial_iterative(n)
+
     return factorial_recursive(n)
 
 
 def factorial_iterative(n):
     # TODO: implement the factorial function iteratively here
-    pass
+    if n > 0 :
+        number = 1
+        for num in range(1,n+1):
+            number = number * num
+        return number
+    else:
+        raise ValueError
+
     # once implemented, change factorial (above) to call factorial_iterative
     # to verify that your iterative implementation passes all tests below
 
@@ -37,7 +46,7 @@ def main():
     args = sys.argv[1:]  # Ignore script file name
     if len(args) == 1:
         num = int(args[0])
-        result = factorial(num)
+        result = factorial_iterative(num)
         print('factorial({}) => {}'.format(num, result))
     else:
         print('Usage: {} number'.format(sys.argv[0]))
